@@ -1,0 +1,40 @@
+import React from 'react';
+import ReactDOM, { createRoot } from 'react-dom/client';
+import { Link } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import App from './App';
+import Dashboard from './pages/dashboard';
+import Login from './pages/login';
+
+/* Core CSS required for Ionic components to work properly */
+import '@ionic/react/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+import '@ionic/react/css/normalize.css';
+import '@ionic/react/css/structure.css';
+import '@ionic/react/css/typography.css';
+
+/* Theme variables */
+import './theme/variables.css';
+import "./theme/base.css";
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+
+import reportWebVitals from './reportWebVitals';
+
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+)
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
