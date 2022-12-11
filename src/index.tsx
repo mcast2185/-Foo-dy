@@ -17,7 +17,7 @@ import '@ionic/react/css/typography.css';
 /* Theme variables */
 import './theme/variables.css';
 import "./theme/base.css";
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import reportWebVitals from './reportWebVitals';

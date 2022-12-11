@@ -18,8 +18,10 @@ import {GoogleAuth} from "@codetrix-studio/capacitor-google-auth"
 import {gapi} from "gapi-script";
 import { useEffect, useState } from 'react';
 import { logoGoogle } from 'ionicons/icons';
-import userImg from "../static/images/userImg.png"
 import { useNavigate } from 'react-router-dom';
+
+import userImg from "../static/images/userImg.png";
+import foodyBg from "../static/images/foodyBG.jpg";
 
 
 // const client_id = process.env.REACT_PUBLIC_G_CLIENT_ID
@@ -50,16 +52,20 @@ const Login = ({setAccessToken}: any) => {
   useEffect(() => {
     if (token !== null){
       navigate("/dashboard");
+      // window.location.replace("/dashboard");
       setAccessToken(token)
     }; 
   });
 
   return (
   <div style={{
+    backgroundImage: `url(${foodyBg})`,
+    backgroundSize: "contain",
+    width: "100vw", height: "100vh",
     display: "flex", 
     justifyContent: "center", 
     alignItems: "center", 
-    margin: "40vh"}}>
+    }}>
 
     <IonCard style={{width: "350px", height: "450px"}}>
       <IonCardContent style={{

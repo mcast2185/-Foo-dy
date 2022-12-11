@@ -1,7 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300&family=Katibeh&family=Murecho:wght@100&family=Shrikhand&display=swap');
-/* .{
- grid-template-rows: ;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Darker+Grotesque:wght@300&family=Fjalla+One&family=Katibeh&family=Murecho:wght@100&family=Shrikhand&display=swap');
+/* @import "./banner.module.css"; */
+/* 
+font-family: 'Bebas Neue', cursive;
+font-family: 'Darker Grotesque', sans-serif;
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Katibeh', cursive;
+font-family: 'Murecho', sans-serif;
+font-family: 'Shrikhand', cursive; 
+*/
 
 ion-menu::part(backdrop) {
   background-color: rgba(170, 163, 147, 0.872);

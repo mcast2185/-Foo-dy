@@ -11,46 +11,70 @@ import {GoogleAuth} from "@codetrix-studio/capacitor-google-auth";
 import {gapi} from "gapi-script";
 import { useEffect } from 'react';
 import { logoGoogle } from 'ionicons/icons';
-import {Carousel} from "react-responsive-carousel";
 
-import chef from "../static/images/chef.jpg";
-import fish from "../static/images/fish.jpg";
-import steak from "../static/images/steak.jpg";
+import background from "../static/images/background.jpg";
+import ImageCarousel from '../components/carousel';
+import Banner from '../components/banner';
+
 
 const Dashboard: React.FC = () => {
 
+  // document.getElementById("main-content")?.setAttribute("class", "0")
 
   return (
+    
     <div style={{
-      pointerEvents: "none",
-      background: "white",
+      backgroundImage: `url(${background})`,
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundAttachment: "fixed",
       height: "100vh",
       width: "100vw",
       display: "flex", 
-      marginTop: "60px"}}>
-      <IonCard 
-        className="ion-padding" 
-        style={{
-          width: "700px", 
-          height: "550px"}}>
-        <IonCardContent>
-          <p> Hello welcome to [Foo·dy] </p>
-          <Carousel>
-                <div>
-                    <img src={chef} />
-                    <p className="legend">Chef</p>
-                </div>
-                <div>
-                    <img src={fish} />
-                    <p className="legend">Fish</p>
-                </div>
-                <div>
-                    <img src={steak}/>
-                    <p className="legend">Steak</p>
-                </div>
-            </Carousel>
-        </IonCardContent>
-      </IonCard>
+      flexDirection: "column",
+      objectFit: "cover",
+      overflowX: "hidden",
+      overflowY: "auto",
+      position: "relative"
+    }}>
+      <Banner/>
+      <div style={{
+        display: "flex",
+        padding: "20px",
+        marginTop: "50px",
+        marginBottom: "50px",
+        position: "relative",
+        top: "0",
+        justifyContent: "space-between"}}>
+        <ImageCarousel/>
+        <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Darker Grotesque, sans-serif"}}>
+         testing
+        </h1>
+      </div> 
+
+
+      {/* =Katibeh&family=Murecho */}
+
+      <div >
+        <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Katibeh"}}>
+         testing
+        </h1>
+       
+      </div>
+      <div >
+        <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Murecho"}}>
+         testing
+        </h1>
+       
+      </div>
+      <div >
+
+        <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Bebas Neue, cursive"}}>
+         testing
+        </h1>
+       
+      </div>
+
     </div>
   );
 };
