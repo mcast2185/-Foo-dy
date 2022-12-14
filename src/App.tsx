@@ -136,7 +136,8 @@ import Banner from './components/banner';
 import Footer from './components/footer';
 import About from './pages/about';
 import Contact from './pages/contact';
-import BannerCarousel from './components/bannerCarousel';
+
+
 
 
 
@@ -205,7 +206,7 @@ const App: React.FC = () => {
 
   return (
     // <IonPage>
-      <>
+      <section style={{width: "100vw", height: "100vh", padding: "0", margin: "0", overflow: "scoll"}}>
         <Header/>
           <Routes>
 
@@ -216,7 +217,7 @@ const App: React.FC = () => {
 
             {sessionStorage.length > 0 ? <>
               <Route path="/dashboard" element={<Dashboard/>}/>              
-              <Route path="/banner" element={<BannerCarousel/>}/>              
+              <Route path="/banner" element={<Banner/>}/>              
               <Route path="/about" element={<About/>}/>
               <Route path="/contact" element={<Contact/>}/>
               </> : null}
@@ -234,8 +235,9 @@ const App: React.FC = () => {
               </div>
             }/>
           </Routes>
+
           <Outlet/>
-        </>
+        </section>
     // </IonPage>
   );
 };

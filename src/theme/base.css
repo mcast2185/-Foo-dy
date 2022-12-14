@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Darker+Grotesque:wght@300&family=Fjalla+One&family=Katibeh&family=Murecho:wght@100&family=Shrikhand&display=swap');
-/* @import "./banner.module.css"; */
+@import "./banner.module.css";
+
 /* 
 font-family: 'Bebas Neue', cursive;
 font-family: 'Darker Grotesque', sans-serif;
@@ -8,6 +9,15 @@ font-family: 'Katibeh', cursive;
 font-family: 'Murecho', sans-serif;
 font-family: 'Shrikhand', cursive; 
 */
+/* html, .root{
+  height: fit-content;
+  width: fit-content;
+} */
+/* body {
+  height: 100vh;
+  width: 100%;
+
+} */
 
 ion-menu::part(backdrop) {
   background-color: rgba(170, 163, 147, 0.872);

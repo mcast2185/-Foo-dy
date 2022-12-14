@@ -6,6 +6,7 @@ import {
   IonHeader, 
   IonIcon, 
   IonPage, 
+  IonItem
 } from '@ionic/react';
 import {GoogleAuth} from "@codetrix-studio/capacitor-google-auth";
 import {gapi} from "gapi-script";
@@ -15,6 +16,7 @@ import { logoGoogle } from 'ionicons/icons';
 import background from "../static/images/background.jpg";
 import ImageCarousel from '../components/carousel';
 import Banner from '../components/banner';
+import Footer from '../components/footer';
 
 
 const Dashboard: React.FC = () => {
@@ -22,60 +24,56 @@ const Dashboard: React.FC = () => {
   // document.getElementById("main-content")?.setAttribute("class", "0")
 
   return (
-    
     <div style={{
       backgroundImage: `url(${background})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       backgroundAttachment: "fixed",
-      height: "100vh",
-      width: "100vw",
+      height: "100%",
+      width: "100%",
       display: "flex", 
       flexDirection: "column",
-      objectFit: "cover",
       overflowX: "hidden",
       overflowY: "auto",
       position: "relative"
     }}>
-      <Banner/>
-      <div style={{
-        display: "flex",
-        padding: "20px",
-        marginTop: "50px",
-        marginBottom: "50px",
-        position: "relative",
-        top: "0",
-        justifyContent: "space-between"}}>
-        <ImageCarousel/>
+      <div>
+        <Banner/>
+        <div style={{
+          display: "flex",
+          padding: "20px",
+          marginTop: "50px",
+          marginBottom: "50px",
+          position: "relative",
+          top: "0"}}>
+          <ImageCarousel/>
+          <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Darker Grotesque, sans-serif"}}>
+          testing
+          </h1>
+        </div> 
+
+        <div >
         <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Darker Grotesque, sans-serif"}}>
-         testing
-        </h1>
-      </div> 
-
-
-      {/* =Katibeh&family=Murecho */}
-
-      <div >
-        <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Katibeh"}}>
-         testing
-        </h1>
-       
+          testing
+          </h1>
+        
+        </div>
+        <div >
+        <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Darker Grotesque, sans-serif"}}>
+          testing
+          </h1>
+        
+        </div>
+        <div >
+        <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Darker Grotesque, sans-serif"}}>
+          testing
+          </h1>
+        </div>
+        <Footer/>
       </div>
-      <div >
-        <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Murecho"}}>
-         testing
-        </h1>
-       
-      </div>
-      <div >
-
-        <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Bebas Neue, cursive"}}>
-         testing
-        </h1>
-       
-      </div>
-
     </div>
+
+
   );
 };
 

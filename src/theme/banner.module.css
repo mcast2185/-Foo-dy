@@ -1,47 +1,102 @@
 /* Banner */
 /* app */
-@keyframes slides {
+@keyframes slide {
   0% {
-    left: 0;
-  };
+      position: absolute;
+      left: 1680px;
+      /* transform: translateX(0%); */
+  },
+  50% {
+      position: absolute;
+      left: 0;
+      /* transform: translateX(-135%); */
+      
+    }
   100% {
-    left: -100%;
-  };
+      /position: absolute;
+      left: -1680px;
+      transform: translateX(-155%);
+  }
 }
+
 
 
 .bannerWrapper {
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 50px;
   z-index: 10;
-  overflow: hidden;
   position:fixed;
-
+  
 }
 
 
-.nestedBanner{
-  width: 200%;
+.nestedBanner {
+  position: relative;
   display: flex;
-  position: absolute;
-  left: 0;
+  align-items: center;
+  width: 100%;
   background-color: rgba(146, 17, 5, 0.8);
-  animation: slides 20s linear infinite;
-  transform: translate3d(0, -50%);
-	-webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-
+  height: 100%;
+  transition: ease;
+  justify-content: space-between;
 }
+
 
 .bannerItems {
+  position: absolute;
+  transition: ease;
+  left: 0;
+  width: 130%;
+  transform: translateX(0%);
+  animation: slide 60s infinite ease-in-out;
   display: flex;
-  width: 50%;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: space-between;
+  top: 8px;
+  overflow: hidden;
+
+  
 }
+
+
+.bannerItems:hover {
+  animation-play-state: paused;
+  transition: .7s ease-in-out;
+
+}
+
+ul {
+  padding-inline-start: 80px;
+}
+
+
 
 .text {
   padding: 3px;
+  margin-left: 10px;
   color: rgb(250, 233, 201);
   font-family: 'Bebas Neue', cursive;
-  font-size: 21px;
+  font-size: 19px;
+  height: 100%;
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: rgba(146, 17, 5, 0.08);
+  border-radius: 15px;
+  transition: ease;
+  text-overflow: clip;
+
+}
+
+
+.text:hover {
+  transform: scale(1);
+  transition: .8s ease-in-out;
+  font-size: 20px;
+  background-color: rgba(113, 14, 5, 0.8);
+  animation-play-state: paused;
+
 }
