@@ -27,6 +27,7 @@ import foodyBg from "../static/images/foodyBG.jpg";
 // const client_id = process.env.REACT_PUBLIC_G_CLIENT_ID
 const client_id: string = "966483059530-2bd3tkjisb06c8di41eo3j5rdcocaqkv.apps.googleusercontent.com"
 
+// in the sign in form, request a user name
 
 const Login = ({setAccessToken}: any) => {
   const [token, setToken] = useState<any>(null)

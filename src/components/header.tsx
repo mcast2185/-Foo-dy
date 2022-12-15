@@ -28,8 +28,8 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import dish from "../static/images/dish.png"
 
 
-// consider a continuous revolving banner below the header
-// location icon with geocoding labeling the city your in
+// at the bottom of the page we have snippets of code yet to be added (modal, accordian, avatar)
+// this will be used within the menu pop up itself with the exception of avatar
 
 
 const loadGoogleScript = ({src, id, onLoad}: any) => {
@@ -255,3 +255,46 @@ export default Header;
 //           </IonContent>
 //         </IonModal>
 //       </IonContent>
+
+
+
+
+
+{/* <>
+<IonChip>
+  <IonAvatar>
+    <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+  </IonAvatar>
+  <IonLabel>Chip Avatar</IonLabel>
+</IonChip>
+</> */}
+
+
+
+
+// <IonAccordionGroup>
+// <IonAccordion value="first">
+//   <IonItem slot="header" color="light">
+//     <IonLabel>First Accordion</IonLabel>
+//   </IonItem>
+//   <div className="ion-padding" slot="content">
+//     First Content
+//   </div>
+// </IonAccordion>
+// <IonAccordion value="second">
+//   <IonItem slot="header" color="light">
+//     <IonLabel>Second Accordion</IonLabel>
+//   </IonItem>
+//   <div className="ion-padding" slot="content">
+//     Second Content
+//   </div>
+// </IonAccordion>
+// <IonAccordion value="third">
+//   <IonItem slot="header" color="light">
+//     <IonLabel>Third Accordion</IonLabel>
+//   </IonItem>
+//   <div className="ion-padding" slot="content">
+//     Third Content
+//   </div>
+// </IonAccordion>
+// </IonAccordionGroup>

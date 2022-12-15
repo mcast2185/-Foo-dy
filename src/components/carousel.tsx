@@ -11,13 +11,13 @@ function ImageCarousel() {
   const queryNames = [];
 
   return (
-    <div style={{width: "65%", height: "600px"}} >
+    <div style={{width: "65%", height: "502px", border: "1px solid white"}} >
      
     <Carousel variant="dark">
       <Carousel.Item>
         <img
           style={{
-            height: "600px", opacity: ".9", borderRadius: "3px"
+            height: "500px", opacity: ".9", borderRadius: "3px"
           }}
           className="d-block w-100"
           src={chef}
@@ -31,7 +31,7 @@ function ImageCarousel() {
       <Carousel.Item>
         <img
           style={{
-            height: "600px", opacity: ".9", borderRadius: "3px"
+            height: "500px", opacity: ".9", borderRadius: "3px"
           }}
           className="d-block w-100"
           src={fish}
@@ -45,7 +45,7 @@ function ImageCarousel() {
       <Carousel.Item>
         <img
           style={{
-            height: "600px", opacity: ".9", borderRadius: "3px"
+            height: "500px", opacity: ".9", borderRadius: "3px"
           }}
           className="d-block w-100"
           src={steak}
