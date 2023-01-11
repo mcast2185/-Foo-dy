@@ -3,95 +3,44 @@ import {
   IonHeader, 
   IonIcon, 
   IonText, 
-  IonPage, 
   IonItem,
   IonMenu,
   IonToolbar,
   IonTitle,
-  IonButton,
   IonButtons,
   IonMenuButton,
   IonImg,
   IonList,
   IonLabel,
-  IonModal,
-  IonInput,
-  IonNavLink
 } from '@ionic/react';
-import { useEffect, useState, useRef } from 'react';
-import { logoIonic, logoReact, logoCapacitor, logoTwitter, logoFacebook, logoLinkedin, logOut } from 'ionicons/icons';
-import {Geolocation} from "@capacitor/geolocation";
-import { GoogleMap, useGoogleMap, useLoadScript } from '@react-google-maps/api';
+import { 
+  logoIonic, 
+  logoReact, 
+  logoCapacitor, 
+  logoTwitter, 
+  logoFacebook, 
+  logoLinkedin, 
+  logOut 
+} from 'ionicons/icons';
 import { Link, useNavigate } from 'react-router-dom';
-import { OverlayEventDetail } from '@ionic/core/components';
 
-import dish from "../static/images/dish.png"
-
-
-// at the bottom of the page we have snippets of code yet to be added (modal, accordian, avatar)
-// this will be used within the menu pop up itself with the exception of avatar
-
-
-const loadGoogleScript = ({src, id, onLoad}: any) => {
-  const exist = document.getElementById(id)
-  if (exist) {
-    console.log("Script already exist");
-    return;
-  } else {
-    const script = document.createElement("script");
-    script.setAttribute("id", id);
-    script.src = src;
-    script.defer = true;
-    script.onload = () => {
-      onLoad && onLoad();
-      console.log("Script is loaded");
-    };
-
-    document.head.appendChild(script);
-  }
-};
-
-
-
-
+import styles from "../theme/header.module.css";
+import dish from "../static/images/dish.png";
 
 
 const Header = () => {
-  const [lat, setLat] = useState<number>();
-  const [lng, setLng] = useState<number>();
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    loadGoogleScript({
-      src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBRShqSMbyvYoO_Q2p1XatFGytoIG5fYdM&callback=initMap",
-      id: "mapGeocode",
-      onload: () => console.log("mapGeocode is loaded")
-    })
-    // window.google = google
-  })
-
-  const myLocation = async () => {
-    const coordinates = await Geolocation.getCurrentPosition();
-    setLat(coordinates.coords.latitude);
-    setLng(coordinates.coords.longitude);
-    return;
-  };
-  myLocation().then(res => res);
-
-
+  const navigate = useNavigate();
   const onClickEvent = () => {
     navigate("/");
     console.log("Nav");
-    
-  }
-
+  };
 
   return (
-    <>
+    <section aria-details='component-content-wrapper'>
       <IonMenu contentId='main-content'>
         <IonHeader>
           <IonToolbar color="light">
-            <IonTitle style={{marginRight: "16px", fontFamily: "Shrikhand"}}>
+            <IonTitle className={styles.ionTitle}>
               Menu:
             </IonTitle>
           </IonToolbar>
@@ -100,21 +49,24 @@ const Header = () => {
           <IonList lines="inset">
             <IonItem>
               <IonLabel>
-                <Link to='/dashboard' style={{textDecoration: "none", color: "white"}}>
+                <Link to='/dashboard' aria-details='inline-style' 
+                  style={{textDecoration: "none", color: "white"}}>
                   Home
                 </Link> 
               </IonLabel>
             </IonItem>
             <IonItem>
               <IonLabel>                
-                <Link to='/about' style={{textDecoration: "none", color: "white"}}>
+                <Link to='/about' aria-details='inline-style' 
+                  style={{textDecoration: "none", color: "white"}}>
                   About Us
                 </Link> 
               </IonLabel>
             </IonItem>
             <IonItem>
               <IonLabel>                
-                <Link to='/contact'style={{textDecoration: "none", color: "white"}}>
+                <Link to='/contact' aria-details='inline-style' 
+                  style={{textDecoration: "none", color: "white"}}>
                   Contact 
                 </Link> 
               </IonLabel>
@@ -125,19 +77,22 @@ const Header = () => {
                 <IonList lines='inset'>
                   <IonItem>
                     <IonLabel>
-                      <IonIcon icon={logoTwitter} style={{color: "royalblue", fontSize: "20px"}}/> {" "}
+                      <IonIcon icon={logoTwitter} 
+                        className={styles.ionMediaIcon}/> {" "}
                       Twitter
                     </IonLabel>
                   </IonItem>
                   <IonItem>
                     <IonLabel> 
-                      <IonIcon icon={logoFacebook} style={{color: "royalblue", fontSize: "20px"}}/> {" "}
+                      <IonIcon icon={logoFacebook} 
+                        className={styles.ionMediaIcon}/> {" "}
                       Facebook
                     </IonLabel>
                   </IonItem>
                   <IonItem>
                     <IonLabel> 
-                      <IonIcon icon={logoLinkedin} style={{color: "royalblue", fontSize: "20px"}}/> {" "}
+                      <IonIcon icon={logoLinkedin} 
+                        className={styles.ionMediaIcon}/> {" "}
                       LinkedIn
                     </IonLabel>
                   </IonItem>
@@ -145,156 +100,58 @@ const Header = () => {
               </IonLabel>
             </IonItem>
           </IonList>
-          <IonItem color="light" style={{position: "absolute", bottom: "0", width: "100%"}}>
-            <div style={{display: "flex", justifyContent: "center", alignItems: "center"}} >
-              <IonIcon icon={logOut} style={{color: "royalblue", fontSize: "30px", marginRight: "5px"}}/> {" "}
+          <IonItem color="light" className={styles.ionItem}>
+            <section aria-details='sign-out-container' 
+              className={styles.signOutSection}>
+              <IonIcon icon={logOut} className={styles.ionLogOutIcon}/> {" "}
               <IonLabel>Sign out {" "}</IonLabel>
-            </div>
-            </IonItem>
+            </section>
+          </IonItem>
         </IonContent>
       </IonMenu>
 
-      {/* <IonPage id="main-content"> */}
       <IonItem id="main-content">
-        <IonHeader style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gridGap: "25px",
-          width: "100%", 
-          objectFit: "contain"}}>
-          
+        <IonHeader className={styles.ionHeader}>
           <IonToolbar>
             <IonButtons slot="start">
-              <IonMenuButton></IonMenuButton>
+              <IonMenuButton/>
             </IonButtons>
           </IonToolbar>
+          <section aria-details='title-wrapper' className={styles.titleWrapper}>
+            <IonText className={styles.ionTextHeader}>
+              <h1 className={styles.titleHeader} id="foody" onClick={onClickEvent}>
+                [Foo{ <IonImg src={dish} aria-details='inline-style' 
+                  style={{height: "27.5px", width: "30.5px", marginTop: "6px", padding: "3px"}}/>
+                }dy] {' '} 
 
-          <div style={{
-            pointerEvents: "none", 
-            display: "flex", 
-            justifyContent: "center",
-            paddingTop: "5px",
-            fontFamily: "Shrikhand"}}>
-            <IonText style={{ display: "flex", 
-            justifyContent: "center",
-            alignContent: "center",}}>
-              <h1 style={{display: "flex", justifyContent: "center"}} id="foody" onClick={onClickEvent}>
-                [Foo{<IonImg style={{height: "27.5px", width: "30.5px", marginTop: "6px", padding: "3px"}} src={dish}></IonImg>}dy] {' '} 
               </h1>
             </IonText>
-          </div>
+          </section>
+          <IonText className={styles.ionTextIcons}>
+            <p className={styles.label}> Powered By:</p>
+            <IonItem aria-details='inline-style' style={{
+              fontSize: "9.5px", fontWeight: "bold", marginRight: "-15px"}}>
 
-          <IonText style={{pointerEvents: "none", display: "flex", justifyContent: "right", alignItems: "center"}}>
-            <p style={{fontSize: "10.5px", fontWeight: "lighter", margin: "0", fontFamily: "Darker Grotesque, sans-serif"}}> Powered By:</p>
-            <IonItem style={{fontSize: "9.5px", fontWeight: "bold", marginRight: "-15px"}}>
-              <IonIcon icon={logoReact} style={{color: "royalblue", fontSize: "20px"}}/>
+              <IonIcon icon={logoReact} className={styles.ionMediaIcon}/>
               React|{' '} 
             </IonItem>
-            <IonItem style={{fontSize: "9.5px", fontWeight: "bold", marginRight: "-15px"}}>
-              <IonIcon icon={logoIonic} style={{color: "royalblue", fontSize: "20px"}}/>
+            <IonItem aria-details='inline-style' style={{
+              fontSize: "9.5px", fontWeight: "bold", marginRight: "-15px"}}>
+
+              <IonIcon icon={logoIonic} className={styles.ionMediaIcon}/>
               Ionic|{' '}
             </IonItem>
-            <IonItem style={{fontSize: "9.5px", fontWeight: "bold", marginRight: "-15px"}}>
-              <IonIcon icon={logoCapacitor} style={{color: "royalblue", fontSize: "20px"}}/>
+            <IonItem aria-details='inline-style' style={{
+              fontSize: "9.5px", fontWeight: "bold", marginRight: "-15px"}}>
+
+              <IonIcon icon={logoCapacitor} className={styles.ionMediaIcon}/>
               Capacitor|
             </IonItem>
           </IonText>
         </IonHeader>
       </IonItem>
-      {/* </IonPage> */}
-    </>
+    </section>
   )
 };
 
 export default Header;
-
-
-// const modal = useRef<HTMLIonModalElement>(null);
-// const input = useRef<HTMLIonInputElement>(null);
-
-// const [message, setMessage] = useState(
-//   'This modal example uses triggers to automatically open a modal when the button is clicked.'
-// );
-
-// function confirm() {
-//   modal.current?.dismiss(input.current?.value, 'confirm');
-// }
-
-// function onWillDismiss(ev: CustomEvent<OverlayEventDetail>) {
-//   if (ev.detail.role === 'confirm') {
-//     setMessage(`Hello, ${ev.detail.data}!`);
-//   }
-// }
-
-
-
-//       <IonContent className="ion-padding">
-//         <IonButton id="open-modal" expand="block">
-//           Open
-//         </IonButton>
-//         <p>{message}</p>
-//         <IonModal ref={modal} trigger="open-modal" onWillDismiss={(ev) => onWillDismiss(ev)}>
-//           <IonHeader>
-//             <IonToolbar>
-//               <IonButtons slot="start">
-//                 <IonButton onClick={() => modal.current?.dismiss()}>Cancel</IonButton>
-//               </IonButtons>
-//               <IonTitle>Welcome</IonTitle>
-//               <IonButtons slot="end">
-//                 <IonButton strong={true} onClick={() => confirm()}>
-//                   Confirm
-//                 </IonButton>
-//               </IonButtons>
-//             </IonToolbar>
-//           </IonHeader>
-//           <IonContent className="ion-padding">
-//             <IonItem>
-//               <IonLabel position="stacked">Enter your name</IonLabel>
-//               <IonInput ref={input} type="text" placeholder="Your name" />
-//             </IonItem>
-//           </IonContent>
-//         </IonModal>
-//       </IonContent>
-
-
-
-
-
-{/* <>
-<IonChip>
-  <IonAvatar>
-    <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-  </IonAvatar>
-  <IonLabel>Chip Avatar</IonLabel>
-</IonChip>
-</> */}
-
-
-
-
-// <IonAccordionGroup>
-// <IonAccordion value="first">
-//   <IonItem slot="header" color="light">
-//     <IonLabel>First Accordion</IonLabel>
-//   </IonItem>
-//   <div className="ion-padding" slot="content">
-//     First Content
-//   </div>
-// </IonAccordion>
-// <IonAccordion value="second">
-//   <IonItem slot="header" color="light">
-//     <IonLabel>Second Accordion</IonLabel>
-//   </IonItem>
-//   <div className="ion-padding" slot="content">
-//     Second Content
-//   </div>
-// </IonAccordion>
-// <IonAccordion value="third">
-//   <IonItem slot="header" color="light">
-//     <IonLabel>Third Accordion</IonLabel>
-//   </IonItem>
-//   <div className="ion-padding" slot="content">
-//     Third Content
-//   </div>
-// </IonAccordion>
-// </IonAccordionGroup>

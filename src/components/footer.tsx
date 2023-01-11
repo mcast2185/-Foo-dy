@@ -1,14 +1,15 @@
-import { IonFooter, IonItem, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react'
+import { IonFooter, IonTitle, IonToolbar } from '@ionic/react';
+
+import styles from "../theme/footer.module.css";
+
 
 const Footer = () => {
   return (
-    <IonFooter collapse="fade" style={{height: "140px", width: "100%", paddingBottom: "0", marginTop: "50px", marginBottom: "0", zIndex: "10", display: "flex"}}>
-    <IonToolbar>
-      <IonTitle>Footer</IonTitle>
-    </IonToolbar>
-  </IonFooter>
-
+    <IonFooter collapse="fade" className={styles.ionFooter}>
+      <IonToolbar>
+        <IonTitle>Footer</IonTitle>
+      </IonToolbar>
+    </IonFooter>
   )
 }
 

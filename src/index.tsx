@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM, { createRoot } from 'react-dom/client';
-import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import App from './App';
-import Dashboard from './pages/dashboard';
-import Login from './pages/login';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -21,6 +20,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import reportWebVitals from './reportWebVitals';
+import SearchResultsProvider from './components/SearchResultsProvider';
 
 
 const root = ReactDOM.createRoot(
@@ -28,9 +28,11 @@ const root = ReactDOM.createRoot(
 )
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App/>
-    </BrowserRouter>
+    <SearchResultsProvider>
+      <BrowserRouter>
+        <App/>
+      </BrowserRouter>
+    </SearchResultsProvider>
   </React.StrictMode>
 );
 

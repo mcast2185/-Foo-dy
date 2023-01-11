@@ -1,0 +1,26 @@
+.section {
+  width: 63.5%; 
+  height: 502px; 
+  border: 1px solid black;
+}
+
+.carouselCaption {
+  margin-left: -150px;
+  background: rgba(0,0,0,.5); 
+  width: 101%; 
+  color: whitesmoke;
+  padding: 0; 
+  margin-right: -6.5px; 
+  font-family: Darker Grotesque, sans-serif;
+}
+
+.carouselHeader {
+  font-weight: bold; 
+  color: whitesmoke;
+}
+
+.carouselDesc {
+  font-size: 18px; 
+  color: whitesmoke; 
+  font-weight: bold;
+}

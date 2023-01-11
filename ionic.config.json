@@ -1,7 +1,8 @@
 {
   "name": "Foody",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "react-router-dom": {}
   },
   "type": "react"
 }

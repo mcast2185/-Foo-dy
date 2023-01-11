@@ -1,114 +1,117 @@
 import { 
-  IonButton, 
   IonCard, 
   IonCardContent, 
-  IonContent, 
   IonHeader, 
-  IonIcon, 
-  IonPage, 
-  IonItem
+  IonCardHeader,
+  IonCardTitle,
+  IonImg,
+  IonTitle,
 } from '@ionic/react';
-import {GoogleAuth} from "@codetrix-studio/capacitor-google-auth";
-import {gapi} from "gapi-script";
-import { useEffect } from 'react';
-import { logoGoogle } from 'ionicons/icons';
+import { useRef } from 'react';
+import {useInView, useScroll, useSpring} from "framer-motion";
 
-
-
-import background from "../static/images/background.jpg";
+import sea from "../static/images/seaFood.png";
 import ImageCarousel from '../components/carousel';
 import Banner from '../components/banner';
 import Footer from '../components/footer';
+import styles from "../theme/dashboard.module.css";
 
 
 
 const Dashboard: React.FC = () => {
-
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
   
 
+
   return (
-    <div style={{
-      backgroundImage: `url(${background})`,
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      backgroundAttachment: "fixed",
-      height: "100%",
-      width: "100%",
-      display: "flex", 
-      flexDirection: "column",
-      overflowX: "hidden",
-      overflowY: "auto",
-      position: "relative"
-      }}>
-      <div>
+    <section aria-details='component-content-wrapper' className={styles.section}>
+      <main aria-details='main-content-wrapper'>
         <Banner/>
-        <div style={{
-          display: "flex",
-          padding: "20px",
-          marginTop: "50px",
-          marginBottom: "50px",
-          position: "relative",
-          justifyContent: "space-between",
-          top: "0"}}>
+        <span aria-details="restaurant-detail-display" 
+          className={styles.arrangedDetails}>
           <ImageCarousel/>
-          <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Darker Grotesque, sans-serif"}}>
-          testing
-          </h1>
-        </div> 
-        
-        <div style={{
-          background: "rgba(0,0,0,.5)", 
-          height: "470px", 
-          width: "90%", 
-          color: "tomato", 
-          fontFamily: "Darker Grotesque, sans-serif", 
-          marginRight: "5%", 
-          marginLeft: "5%", 
-          marginTop: "150px",
-          padding: "25px",
-          borderRadius: "7px"
-          }}>
-          <div >
-            <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Darker Grotesque, sans-serif"}}>
-              testing
-            </h1>
-          </div>
-          <div >
-            <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Darker Grotesque, sans-serif"}}>
-              testing
-            </h1>  
-          </div>
-          <div >
-            <h1 style={{background: "rgba(0,0,0,.5)", height: "15vh", width: "15vw", color: "tomato", fontFamily: "Darker Grotesque, sans-serif"}}>
-              testing
-            </h1>
-          </div>
-        </div>
+          <summary className={styles.summary}>
+            <IonCard aria-details='inline-style' color="transparent" 
+              style={{width: "400px", height: "375px"}}>
+              <IonCardHeader>
+                <IonCardTitle aria-details='inline-style' 
+                  style={{fontFamily: 'Shrikhand, cursive', 
+                  textDecoration: "underline", 
+                  color: "white"}}>
+                  Enjoy authentic plates near you
+                </IonCardTitle>
+              </IonCardHeader>
+            </IonCard>
+          </summary>
+        </span> 
+        <section aria-details='mid-page-section' className={styles.midSection}>
+     
+     {/* this is where we will hold our center content  */}
 
-        
-        <div style={{
-          background: "rgba(0,0,0,.1)", 
-          height: "500px", 
-          width: "100%", 
-          color: "tomato", 
-          fontFamily: "Darker Grotesque, sans-serif", 
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "50px",
-          padding: "25px",
-          borderRadius: "7px"
-          }}>
-          <div>
+        </section>
+        <IonHeader className={styles.ionHeader}>
+          <IonTitle>Take a stroll through the city</IonTitle>
+        </IonHeader>
+          <article className={styles.article}
+            id="section" ref={ref}>
 
-          </div>
+            <span aria-details='inline-style' style={{
+              transform: isInView ? "none" : "translateX(-200px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"}}>
+              
+              <div>
+                <IonCard color="transparent" className={styles.ionCard}>
+                  <IonCardHeader>
+                    <IonCardTitle aria-details='inline-style' style={{
+                      fontFamily: 'Shrikhand, cursive', textDecoration: "underline", 
+                      color: "white", fontSize: "25px"}}>
 
-        </div>
+                      From the sea to the table
+                    </IonCardTitle>
+                  </IonCardHeader>
+                  <IonImg src={sea} className={styles.ionImage}/>
+                </IonCard>
+              </div>
+            </span>
+            <span aria-details='inline-style' style={{
+              opacity: isInView ? 1 : 0,
+              transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"}}>
 
+              <article className={styles.details}>
+                <IonCard aria-details='inline-style' style={{
+                  width: "800px", height: "250px", marginLeft: "50px"}}>
+                  <IonCardHeader>
+                    <IonCardTitle aria-details='inline-style' style={{
+                      fontFamily: 'Shrikhand, cursive', textDecoration: "underline"}}>
+
+                      Enjoy authentic plates near you
+                    </IonCardTitle>
+                  </IonCardHeader>
+                  <IonCardContent className={styles.cardContent}>
+                    {/* work on the overflow here for the content adding a scroll feature */}
+                    {/* <motion.div className="progress-bar" style={{ scaleX }} /> */}
+                    Here's a small text description for the card content. Nothing more, nothing less. Lorem ipsum dolor, sit 
+                    amet consectetur adipisicing elit. Sunt assumenda necessitatibus dolorum cupiditate corrupti. Aspernatur 
+                    tempore sed voluptas accusantium eos quasi repellendus blanditiis. Odit harum accusamus iste eaque 
+                    distinctio magni. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti distinctio quas omnis 
+                    suscipit natus, odio labore doloremque harum quibusdam, iure, doloribus repellendus! Qui corrupti pariatur 
+                    dolore placeat, quam rerum animi.
+                  </IonCardContent>
+                </IonCard>
+              </article>
+            </span>
+          </article>
         <Footer/>
-      </div>
-    </div>
-
-
+      </main>
+    </section>
   );
 };
 

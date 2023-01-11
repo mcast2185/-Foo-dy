@@ -1,65 +1,59 @@
-import { IonButton, IonItem } from '@ionic/react';
-import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
+import styles from "../theme/carousel.module.css";
 import chef from "../static/images/chef.jpg";
 import fish from "../static/images/fish.jpg";
 import steak from "../static/images/steak.jpg";
+import { useEffect } from 'react';
 
 function ImageCarousel() {
-  const queryImgs = [];
-  const queryNames = [];
+  useEffect(() => {
+    if (document.querySelector(".carousel-control-next-icon") || document.querySelector(".carousel-control-prev-icon")) {
+      document.querySelector(".carousel-control-prev-icon")?.remove();
+      document.querySelector(".carousel-control-next-icon")?.remove();
+    } else {
+      console.log("Tags could not be found");
+    }
+  }, []);
 
   return (
-    <div style={{width: "65%", height: "502px", border: "1px solid white"}} >
-     
-    <Carousel variant="dark">
-      <Carousel.Item>
-        <img
-          style={{
-            height: "500px", opacity: ".9", borderRadius: "3px"
-          }}
-          className="d-block w-100"
-          src={chef}
-          alt="First slide"
-          />
-        <Carousel.Caption style={{marginLeft: "-150px",background: "rgba(0,0,0,.5)", width: "98%", color: "whitesmoke", marginRight: "-6.5px", fontFamily: "Darker Grotesque, sans-serif"}}>
-          <h4 style={{fontWeight: "bold"}}>First slide label</h4>
-          <p style={{fontSize: "18px", fontWeight: "bold"}}>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          style={{
-            height: "500px", opacity: ".9", borderRadius: "3px"
-          }}
-          className="d-block w-100"
-          src={fish}
-          alt="Second slide"
-          />
-        <Carousel.Caption style={{marginLeft: "-150px",background: "rgba(0,0,0,.5)", width: "98%", color: "whitesmoke", marginRight: "-6.5px", fontFamily: "Darker Grotesque, sans-serif"}}>
-          <h4 style={{fontWeight: "bold"}}>Second slide label</h4>
-          <p style={{fontSize: "18px", fontWeight: "bold"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          style={{
-            height: "500px", opacity: ".9", borderRadius: "3px"
-          }}
-          className="d-block w-100"
-          src={steak}
-          alt="Third slide"
-          />
-        <Carousel.Caption style={{marginLeft: "-150px",background: "rgba(0,0,0,.5)", width: "98%", color: "whitesmoke", marginRight: "-6.5px", fontFamily: "Darker Grotesque, sans-serif", fontWeight: "bold"}}>
-          <h4 style={{fontWeight: "bold"}}>Third slide label</h4>
-          <p style={{fontSize: "18px", fontWeight: "bold"}}>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-          </div>
+    <section aria-details='component-content-wrapper' className={styles.section}>
+      <Carousel variant="dark" indicators={false}>
+        <Carousel.Item>
+          <img aria-details='inline-style'style={{
+            height: "500px", opacity: ".9", borderRadius: "3px"}}
+            className="d-block w-100" src={chef} alt="First slide"/>
+          <Carousel.Caption className={styles.carouselCaption}>
+            <h4 className={styles.carouselHeader}>First slide label</h4>
+            <p className={styles.carouselDesc}>
+              Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img aria-details='inline-style'style={{
+            height: "500px", opacity: ".9", borderRadius: "3px"}}
+            className="d-block w-100" src={fish} alt="Second slide"/>
+          <Carousel.Caption className={styles.carouselCaption}>
+            <h4 className={styles.carouselHeader}>Second slide label</h4>
+            <p className={styles.carouselDesc}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img aria-details='inline-style'style={{
+            height: "500px", opacity: ".9", borderRadius: "3px"}}
+            className="d-block w-100" src={steak} alt="Third slide"/>
+          <Carousel.Caption className={styles.carouselCaption}>
+            <h4 className={styles.carouselHeader}>Third slide label</h4>
+            <p className={styles.carouselDesc}>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </section>
   );
 }
 

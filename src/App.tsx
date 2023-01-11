@@ -1,10 +1,11 @@
-import { setupIonicReact, isPlatform} from '@ionic/react';
-import {Outlet, Route, Routes } from 'react-router-dom';
-import { useLoadScript } from '@react-google-maps/api';
+import { setupIonicReact} from '@ionic/react';
+import {Outlet, Route, Routes, Link } from 'react-router-dom';
 import { gapi } from 'gapi-script';
 import { useState, useEffect } from 'react';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
-import { Link } from 'react-router-dom';
+// import { AnimatePresence, motion } from 'framer-motion';
+
+import styles from './theme/app.module.css'
 import Dashboard from './pages/dashboard';
 import Login from './pages/login';
 import Header from './components/header';
@@ -12,75 +13,28 @@ import Banner from './components/banner';
 import About from './pages/about';
 import Contact from './pages/contact';
 
-
-
-
-
 setupIonicReact();
 
-const api_key: string = String(process.env.REACT_PUBLIC_G_API_KEY);
 const client_id: string = "966483059530-2bd3tkjisb06c8di41eo3j5rdcocaqkv.apps.googleusercontent.com";
-const libraries: any = ["places", "geometry"];
-const scriptSource = "https://apis.google.com/js/client.js";
-
-const start = () => {
-  GoogleAuth.initialize({
-    clientId: client_id,
-    scopes: ["profile", "email"]
-  });
-};
-
-!isPlatform("capacitor") && 
-  gapi.load('client:auth2', start);
-
-// this should be a redux function-->
-const loadGoogleScript = ({src, id, onLoad}: any) => {
-  const exist = document.getElementById(id)
-  if (exist) {
-    console.log("Script already exist: App*");
-    return;
-  } else {
-    const script = document.createElement("script");
-    script.setAttribute("id", id);
-    script.src = src;
-    script.defer = true;
-    script.async = true;
-    script.onload = () => {
-      onLoad && onLoad();
-      console.log("Script is loaded: App*");
-    };
-
-    document.head.appendChild(script);
-  }
-};
-// --|
 
 
 const App: React.FC = () => {
   const [accessToken, setAccessToken] = useState<any>(null);
-  const {isLoaded} = useLoadScript({
-    googleMapsApiKey: api_key,
-    libraries: libraries
-  });
 
-
-  if (isLoaded) {
-    loadGoogleScript({
-      src: scriptSource,
-      id: 'gapiScript',
-      onLoad: () => console.log("Places library is loaded: App*"),
-    });
-  } else {
-    console.log("Libraries are not loaded");
-  };
+  useEffect(() => {
+    const start = () => {
+      GoogleAuth.initialize({
+        clientId: client_id,
+        scopes: ["profile", "email"]
+      });
+    };
+    gapi.load('client:auth2', start);
+  }, []);
 
   accessToken !== null && sessionStorage.setItem("userToken", accessToken);
 
-  
-
   return (
-
-      <section style={{width: "100vw", height: "100vh", padding: "0", margin: "0", overflow: "scoll"}}>
+      <section className={styles.section}>
         <Header/>
         <Routes>
           <Route path="" element={
@@ -96,16 +50,13 @@ const App: React.FC = () => {
               </> : null}
 
           <Route path="*" element={
-            <div style={{
-              display: "flex", 
-              justifyContent: "center", 
-              alignItems: "center", 
-              alignContent: "center", 
-              margin: "40vh"}}>
+            <article className={styles.article}>
               <h1 > 404 page </h1>
               <p>Oops! Nothing to see here.</p>
-              <Link style={{textDecoration: "none", color: "black"}} to="/">Let's go back!</Link>
-            </div>
+              <Link className={styles.articleLink} to="/">
+                Let's go back!
+              </Link>
+            </article>
           }/>
         </Routes>
         <Outlet/>

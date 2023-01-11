@@ -1,0 +1,69 @@
+.ionTitle {
+  margin-right: 16px;
+  font-family: Shrikhand
+}
+
+.ionMediaIcon {
+  color: royalblue; 
+  font-size: 20px
+}
+
+.ionItem {
+  position: absolute; 
+  bottom: 0; 
+  width: 100%;
+}
+
+.signOutSection {
+  display: flex; 
+  justify-content: center; 
+  align-items: center
+}
+
+
+.ionLogOutIcon {
+  color: royalblue;
+  font-size: 30px; 
+  margin-right: 5px;
+}
+
+.ionHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 25px;
+  width: 100%; 
+  object-fit: contain
+}
+
+.titleWrapper {
+  pointer-events: none; 
+  display: flex; 
+  justify-content: center;
+  padding-top: 5px;
+  font-family: Shrikhand;
+}
+
+.ionTextHeader { 
+  display: flex; 
+  justify-content: center;
+  align-content: center
+}
+
+.titleHeader {
+  display: flex; 
+  justify-content: center;
+}
+
+.ionTextIcons {
+  pointer-events: none; 
+  display: flex; 
+  justify-content: right; 
+  align-items: center;
+}
+
+.label {
+  font-size: 10.5px; 
+  font-weight: lighter; 
+  margin: 0; 
+  font-family: Darker Grotesque, sans-serif;
+}
