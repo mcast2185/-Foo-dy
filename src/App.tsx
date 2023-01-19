@@ -12,6 +12,8 @@ import Header from './components/header';
 import Banner from './components/banner';
 import About from './pages/about';
 import Contact from './pages/contact';
+import Footer from './components/footer';
+
 
 setupIonicReact();
 
@@ -20,7 +22,6 @@ const client_id: string = "966483059530-2bd3tkjisb06c8di41eo3j5rdcocaqkv.apps.go
 
 const App: React.FC = () => {
   const [accessToken, setAccessToken] = useState<any>(null);
-
   useEffect(() => {
     const start = () => {
       GoogleAuth.initialize({
@@ -28,39 +29,37 @@ const App: React.FC = () => {
         scopes: ["profile", "email"]
       });
     };
-    gapi.load('client:auth2', start);
-  }, []);
-
+  gapi.load('client:auth2', start)}, []);
   accessToken !== null && sessionStorage.setItem("userToken", accessToken);
 
   return (
-      <section className={styles.section}>
-        <Header/>
-        <Routes>
-          <Route path="" element={
-            <Login setAccessToken={
-              (token: any) => {
-                setAccessToken(token)}}/>}/>
+    <section className={styles.section}>
+      <Header/>
+      <Routes>
+        <Route path="" element={
+          <Login setAccessToken={
+            (token: any) => {
+              setAccessToken(token)}}/>}/>
 
-            {sessionStorage.length > 0 ? <>
-              <Route path="/dashboard" element={<Dashboard/>}/>              
-              <Route path="/banner" element={<Banner/>}/>              
-              <Route path="/about" element={<About/>}/>
-              <Route path="/contact" element={<Contact/>}/>
-              </> : null}
+          {sessionStorage.length > 0 ? <>
+            <Route path="/dashboard" element={<Dashboard/>}/>              
+            <Route path="/banner" element={<Banner/>}/>              
+            <Route path="/about" element={<About/>}/>
+            <Route path="/contact" element={<Contact/>}/>
+            </> : null}
 
-          <Route path="*" element={
-            <article className={styles.article}>
-              <h1 > 404 page </h1>
-              <p>Oops! Nothing to see here.</p>
-              <Link className={styles.articleLink} to="/">
-                Let's go back!
-              </Link>
-            </article>
-          }/>
-        </Routes>
-        <Outlet/>
-      </section>
+        <Route path="*" element={
+          <article className={styles.article}>
+            <h1 > 404 page </h1>
+            <p>Oops! Nothing to see here.</p>
+            <Link className={styles.articleLink} to="/">
+              Let's go back!
+            </Link>
+          </article>
+        }/>
+      </Routes>
+      <Outlet/>
+    </section>
   );
 };
 

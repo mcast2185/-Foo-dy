@@ -120,14 +120,15 @@ const Header = () => {
           <section aria-details='title-wrapper' className={styles.titleWrapper}>
             <IonText className={styles.ionTextHeader}>
               <h1 className={styles.titleHeader} id="foody" onClick={onClickEvent}>
-                [Foo{ <IonImg src={dish} aria-details='inline-style' 
-                  style={{height: "27.5px", width: "30.5px", marginTop: "6px", padding: "3px"}}/>
+                [Foo{ 
+                  <IonImg src={dish} aria-details='inline-style' style={{
+                    height: "27.5px", width: "30.5px", marginTop: "6px", padding: "3px"}}/>
                 }dy] {' '} 
 
               </h1>
             </IonText>
           </section>
-          <IonText className={styles.ionTextIcons}>
+          <div className={styles.ionTextIcons}>
             <p className={styles.label}> Powered By:</p>
             <IonItem aria-details='inline-style' style={{
               fontSize: "9.5px", fontWeight: "bold", marginRight: "-15px"}}>
@@ -147,7 +148,7 @@ const Header = () => {
               <IonIcon icon={logoCapacitor} className={styles.ionMediaIcon}/>
               Capacitor|
             </IonItem>
-          </IonText>
+          </div>
         </IonHeader>
       </IonItem>
     </section>

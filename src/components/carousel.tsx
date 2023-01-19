@@ -1,10 +1,10 @@
+import { useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 import styles from "../theme/carousel.module.css";
 import chef from "../static/images/chef.jpg";
 import fish from "../static/images/fish.jpg";
 import steak from "../static/images/steak.jpg";
-import { useEffect } from 'react';
 
 function ImageCarousel() {
   useEffect(() => {

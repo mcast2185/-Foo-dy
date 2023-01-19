@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import App from './App';
 
 
@@ -20,19 +19,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import reportWebVitals from './reportWebVitals';
-import SearchResultsProvider from './components/SearchResultsProvider';
+
 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
-)
+);
+
 root.render(
   <React.StrictMode>
-    <SearchResultsProvider>
-      <BrowserRouter>
-        <App/>
-      </BrowserRouter>
-    </SearchResultsProvider>
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 import { logoGoogle } from 'ionicons/icons';
 import { useNavigate } from 'react-router-dom';
 
-import styles from "../theme/login.module.css"
+import styles from "../theme/login.module.css";
 import userImg from "../static/images/userImg.png";
 
 
