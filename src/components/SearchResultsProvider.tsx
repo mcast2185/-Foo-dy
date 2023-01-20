@@ -1,12 +1,8 @@
-import { Link } from 'react-router-dom';
-import {Geolocation} from "@capacitor/geolocation"
 import styles from "../theme/results.module.css";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { IonImg,} from '@ionic/react';
 import Accordion from "react-bootstrap/Accordion";
-import { Api, ApiTwo, ApiThree } from '../temp/snippet';
-
-
+import { Api } from '../temp/snippet';
 
 
 const apiKey = "AIzaSyBRShqSMbyvYoO_Q2p1XatFGytoIG5fYdM";
@@ -16,45 +12,30 @@ const searchEngineId = "54fd67d12dc924033";
 const SearchResultsProvider = ({children}: any) => {
   const [resultsApi, setResultsApi] = useState<any>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [currentLocation, setCurrentLocation] = useState<{}>({});
+
   const input = {
     key: apiKey,
     cx: searchEngineId
   };
 
-  const myLocation = async () => {
-    const coordinates = await Geolocation.getCurrentPosition();
-    setCurrentLocation({
-      lattitude: Number(coordinates.coords.latitude), 
-      longitude: Number(coordinates.coords.longitude
-    )});
-  };
-  myLocation().then(res => {
-    return res;
-  });
-
-
-  const executeApiQuery = async () => {
-    setIsLoading(false);
-  };
 
   const getResults = async () => {
-    // myLocation();
+
     const response = await fetch(
       `https://www.googleapis.com/customsearch/v1?key=${input.key}&cx=${input.cx}&as_rights=(cc_publicdomain%7Ccc_attribute%7Ccc_sharealike%7Ccc_nonderived).-(cc_noncommercial)&q=restaurants+near+me+denver,more:pagemap:restaurant-servesCuisine+rating&exactTerms=restaurant+denver&hq=denver+CO&orTerms=restaurant&sort_by=rating-stars,rating-stars:r:5`);
     const data = await response.json();
-    setIsLoading(false);
     setResultsApi(data);
+    setIsLoading(false);
     console.log(data);
   };
-
+  
+    
 
   return (
     <section className={styles.resultsSection}>
       <span aria-details="results-button" className={styles.buttonWrapper}>
         <button className={styles.resultsButton} 
           onClick={() => getResults()}>
-          {/* onClick={() => executeApiQuery()}> */}
           <p className={styles.p}>
             Click here for top Restaurants
           </p>
@@ -64,26 +45,31 @@ const SearchResultsProvider = ({children}: any) => {
         {isLoading &&
           <div className={styles.promo} >
             <h1 className={styles.happyHour} >
-              <i>{" · "} Find a Happy Hour that works for you {" "}
-              <a target="_blank" rel="noopener noreferrer" 
-                aria-details='external-link'
-                href="https://www.5280.com/denvers-best-happy-hours" 
-                className={styles.a}>
-                Here
-              </a> {" · "} </i>
+              <i>
+                {" · "} Find a Happy Hour that works for you {" "}
+                <a target="_blank" rel="noopener noreferrer" 
+                  aria-details='external-link'
+                  href="https://www.5280.com/denvers-best-happy-hours" 
+                  className={styles.a}>
+                  Here
+                </a> 
+                {" · "} 
+              </i>
             </h1>
           </div>
         }
-      <div className={styles.accordionWrapper}>
-        { !isLoading && 
+      <div className={styles.accordionWrapper} id="accordionWrapper">
+        { !isLoading && ((document.getElementById("accordionWrapper") as HTMLElement).style.visibility = "visible") &&
         <section id="accordion">
           <Accordion defaultActiveKey="0" flush>
             <Accordion.Item eventKey="0" className={styles.accordionItem}>
               <Accordion.Header>{Api[0].title}</Accordion.Header>
               <Accordion.Body className={styles.accordionBody}>
-                <IonImg role="img" src={Api[0].pagemap.img} 
-                  style={{height: "200px", width: "180px",
-                  imageRendering: "optimizeSpeed"}} />
+                <span id=""> 
+                  <IonImg role="img" src={Api[0].pagemap.img} 
+                    style={{height: "200px", width: "180px",
+                    imageRendering: "smooth"}} />
+                </span>
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[0].title}
@@ -108,7 +94,7 @@ const SearchResultsProvider = ({children}: any) => {
                   <br/>
                   <br/>
                   <span itemProp="description">
-                  {Api[0].desc}
+                    {Api[0].desc}
                   </span>
                 </div>
               </Accordion.Body>
@@ -118,7 +104,7 @@ const SearchResultsProvider = ({children}: any) => {
               <Accordion.Body className={styles.accordionBody}>
                 <IonImg role="img" src={Api[1].pagemap.img} 
                   style={{height: "200px", width: "180px",
-                  imageRendering: "optimizeSpeed"}} />
+                  imageRendering: "smooth"}} />
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[1].title}
@@ -146,7 +132,7 @@ const SearchResultsProvider = ({children}: any) => {
                   <br/>
                   <br/>
                   <span itemProp="description">
-                  {Api[1].desc}
+                    {Api[1].desc}
                   </span>
                 </div>
               </Accordion.Body>
@@ -156,7 +142,7 @@ const SearchResultsProvider = ({children}: any) => {
               <Accordion.Body className={styles.accordionBody}>
                 <IonImg role="img" src={Api[2].pagemap.img} 
                   style={{height: "200px", width: "180px",
-                  imageRendering: "optimizeSpeed"}} />
+                  imageRendering: "smooth"}} />
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[2].title}
@@ -181,7 +167,7 @@ const SearchResultsProvider = ({children}: any) => {
                   <br/>
                   <br/>
                   <span itemProp="description">
-                  {Api[2].desc}
+                    {Api[2].desc}
                   </span>
                 </div>
               </Accordion.Body>
@@ -191,7 +177,7 @@ const SearchResultsProvider = ({children}: any) => {
               <Accordion.Body className={styles.accordionBody}>
                 <IonImg role="img" src={Api[3].pagemap.img} 
                   style={{height: "200px", width: "180px",
-                  imageRendering: "optimizeSpeed"}} />
+                  imageRendering: "smooth"}} />
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[3].title}
@@ -216,7 +202,7 @@ const SearchResultsProvider = ({children}: any) => {
                   <br/>
                   <br/>
                   <span itemProp="description">
-                  {Api[3].desc}
+                    {Api[3].desc}
                   </span>
                 </div>
               </Accordion.Body>
@@ -226,7 +212,7 @@ const SearchResultsProvider = ({children}: any) => {
               <Accordion.Body className={styles.accordionBody}>
                 <IonImg role="img" src={Api[4].pagemap.img} 
                   style={{height: "200px", width: "180px",
-                  imageRendering: "optimizeSpeed"}} />
+                  imageRendering: "smooth"}} />
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[4].title}
@@ -251,7 +237,7 @@ const SearchResultsProvider = ({children}: any) => {
                   <br/>
                   <br/>
                   <span itemProp="description">
-                  {Api[4].desc}
+                    {Api[4].desc}
                   </span>
                 </div>
               </Accordion.Body>

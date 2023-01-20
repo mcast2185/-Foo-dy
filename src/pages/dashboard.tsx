@@ -15,7 +15,7 @@ import Banner from '../components/banner';
 import Footer from '../components/footer';
 import styles from "../theme/dashboard.module.css";
 import SearchResultsProvider from '../components/SearchResultsProvider';
-import { ApiThree } from '../temp/snippet';
+import { ApiThree, ApiFour } from '../temp/snippet';
 
 
 
@@ -23,7 +23,7 @@ const Dashboard: React.FC = () => {
   const ref = useRef(null);
   const sectionThreeRef = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const sectionThreeInView = useInView(ref, { once: true });
+  const sectionThreeInView = useInView(sectionThreeRef, { once: true });
 
 
   const mouseOverEvent = () => {
@@ -42,28 +42,22 @@ const Dashboard: React.FC = () => {
   };
 
 
-  // rework this code
+  const mouseOverEventTwo = () => {
+    (document.getElementById("greek") as HTMLElement).addEventListener("mouseover", ev => {
+      if ("mouseenter" || "mouseover") {
+        (document.getElementById("greek") as HTMLElement).style.filter = "brightness(50%)";
+        (document.getElementById("eventListenerTwo") as HTMLElement).style.opacity = ".8";
+      };
+    });
+    (document.getElementById("greek") as HTMLElement).addEventListener("mouseout", ev => {
+      if ("mouseleave" || "mouseout") {
+        (document.getElementById("greek") as HTMLElement).style.filter = "brightness(100%)";
+        (document.getElementById("eventListenerTwo") as HTMLElement).style.opacity = "0";
+      };
+    });
+  };
 
-  // const mouseOverEventTwo = () => {
-  //   (document.getElementById("greek") as HTMLElement).addEventListener("mouseover", ev => {
-  //     if ("mouseenter" || "mouseover") {
-  //       (document.getElementById("testing") as HTMLElement).style.transform = "translateX(-620px)";
-  //       (document.getElementById("testing") as HTMLElement).style.opacity = "1";
-  //     };
-  //   });
-  //   (document.getElementById("greek") as HTMLElement).addEventListener("mouseout", ev => {
-  //     if ("mouseleave" || "mouseout") {
-  //       (document.getElementById("testing") as HTMLElement).style.filter = "translateX(0px)";
-  //       (document.getElementById("eventListener") as HTMLElement).style.opacity = "0";
-  //     };
-  //   });
-  // };
 
-  // if (isInView) { 
-  //   mouseOverEventTwo();
-  //   console.log(" added event");
-  // }
-  
   return (
     <>
     <main aria-details='component-content-wrapper' className={styles.dashboardContainer}>
@@ -109,8 +103,7 @@ const Dashboard: React.FC = () => {
             </h2>
           </IonTitle>
         </section>
-        <section ref={ref} aria-details='inline-style' style={{opacity: isInView ? 1 : 0,
-          transform: isInView ? "none" : "translateX(-200px)"}}>
+        <section ref={ref} aria-details='inline-style' >
           <div className={styles.sectionTwoImgWrapper}>
             <img src={sea} onMouseOver={mouseOverEvent} 
               className={styles.sectionTwoImg} id="domEvent"/>
@@ -130,12 +123,20 @@ const Dashboard: React.FC = () => {
           <section aria-details='inline-style' style={{opacity: isInView ? 1 : 0,
             transform: isInView ? "none" : "translateX(-250px)", transition: "3.5s ease-in-out"}}>
             <div className={styles.sectionTwoImgContainer}>
-              <span id="testing">
-                <img src={greek} className={styles.sectionTwoNextImg} id="greek"/>
+              <img src={greek} onMouseOver={mouseOverEventTwo}
+                className={styles.sectionTwoNextImg} id="greek"/>
+              <span>
+                <h1 id="eventListenerTwo" className={styles.sectionTwoImgLabelTwo}>
+                  {`
+                    ${ApiFour[0].pagemap.restaurant[0].name}: 
+                    ${ApiFour[0].pagemap.restaurant[0].servescuisine}
+                  `}
+                </h1> 
               </span>
             </div>
           </section>
         </main>
+        <span aria-details='section-three-ref-point' ref={sectionThreeRef} />
       </main>
 
 

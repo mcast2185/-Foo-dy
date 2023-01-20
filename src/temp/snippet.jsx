@@ -1949,7 +1949,7 @@ export const ApiThree = [
 }
 ]
 
-const ApiFour = [
+export const ApiFour = [
     {
         "kind": "customsearch#result",
         "title": "Online Menu of CAVA, Denver, CO",

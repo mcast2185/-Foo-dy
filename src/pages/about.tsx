@@ -1,6 +1,7 @@
 import { IonCard, IonContent, IonInfiniteScroll, IonInfiniteScrollContent, IonItem } from '@ionic/react';
 import {useEffect} from 'react';
 import SearchResultsProvider from '../components/SearchResultsProvider';
+import ReviewResults from '../components/reviewResults';
 
 
 
@@ -23,7 +24,7 @@ const About = () => {
 
   return (
     <>
-
+<ReviewResults/>
       <div>About</div>
 
     </>
