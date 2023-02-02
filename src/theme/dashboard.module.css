@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@600;700;800&family=Racing+Sans+One&family=Bebas+Neue&family=Darker+Grotesque:wght@300;500&family=Fjalla+One&family=Katibeh&family=Murecho:wght@300;700;800;900&family=Shrikhand&display=swap');
+
 @keyframes sectionThreeAnimation {
   0% {
     transform: translateX(-25px);
@@ -282,7 +283,46 @@
   flex-direction: column;
 }
 
+.sectionThreeTitleWrapper {
+  height: 155px;
+  width: 100%;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
 
+.sectionThreeHeader {
+  height: 100%;
+  width: 100%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.sectionThreeH2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(234, 234, 234, .9);
+  mix-blend-mode: difference;
+  font-size: 4.5rem;
+  letter-spacing: -2px;
+  -webkit-text-stroke-color: rgb(34, 34, 34);
+  -webkit-text-stroke-width: .5px;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bolder; 
+  /* border-bottom: 10px solid rgba(146, 17, 5, 0.8); */
+}
+
+
+.sectionThreeGmapWrapper {
+  height: 500px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  image-rendering: auto;
+}
+
+/* 
 .sectionThreeCardWrapper {
   animation: sectionThreeContentAnimation 5s;
   transition: 5s ease-in-out;
@@ -312,4 +352,4 @@
   letter-spacing: 1px;
   -webkit-text-stroke-width: .5px;
   margin-bottom: 10px;
-}
+} */

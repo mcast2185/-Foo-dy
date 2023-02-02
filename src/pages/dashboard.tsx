@@ -1,10 +1,4 @@
-import { 
-  IonCard, 
-  IonCardContent, 
-  IonCardHeader,
-  IonCardTitle,
-  IonTitle,
-} from '@ionic/react';
+import { IonTitle} from '@ionic/react';
 import { useRef } from 'react';
 import {useInView} from "framer-motion";
 
@@ -15,7 +9,9 @@ import Banner from '../components/banner';
 import Footer from '../components/footer';
 import styles from "../theme/dashboard.module.css";
 import SearchResultsProvider from '../components/SearchResultsProvider';
-import { ApiThree, ApiFour } from '../temp/snippet';
+import { ApiThree, ApiFour, ApiFive } from '../temp/snippet';
+import Map from '../components/maps';
+import { Link } from 'react-scroll';
 
 
 
@@ -58,6 +54,22 @@ const Dashboard: React.FC = () => {
   };
 
 
+  const dynamicLink = (route: string, linkText: string) => {
+    return (
+      <div className='nav-link-wrapper'>
+        <Link to={route} duration={1000} activeClass='nav-link-active'>
+          {linkText}
+        </Link>
+      </div>
+    )
+  };
+  // const aaa = () => {
+  //   ApiFive[0].items.forEach(el => {
+  //     console.log(el.pagemap.geocoordinates[0]);
+  //   })
+  // }
+  // isInView && aaa();
+
   return (
     <>
     <main aria-details='component-content-wrapper' className={styles.dashboardContainer}>
@@ -66,7 +78,8 @@ const Dashboard: React.FC = () => {
         <section aria-details="upper-detail" 
           className={styles.sectionOneDetails}>
           <div className={styles.upperContent} >
-            <div style={{ marginTop: "50px", position: "absolute", top: "1%", zIndex: "10", left: "9%"}}>
+            <div aria-details='inline-style' style={{ marginTop: "50px", 
+              position: "absolute", top: "1%", zIndex: "10", left: "9%"}}>
               <IonTitle className={styles.sectionOneHeader}>
                 <i>
                   <h2 className={styles.h2}>Dine-in at Denver</h2>
@@ -85,10 +98,7 @@ const Dashboard: React.FC = () => {
         </section> 
       </main>
 
-
-
-
-      <main aria-details='center-content-wrapper' className={styles.mainSectionTwo}>
+      <main ref={ref} aria-details='center-content-wrapper' className={styles.mainSectionTwo}>
         <section aria-details="center-detail" className={styles.sectionTwoDetails}>
           <IonTitle className={styles.ionCenterHeader}>
             <h2 className={styles.sectionTwoH2}>
@@ -103,7 +113,7 @@ const Dashboard: React.FC = () => {
             </h2>
           </IonTitle>
         </section>
-        <section ref={ref} aria-details='inline-style' >
+        <section ref={ref}>
           <div className={styles.sectionTwoImgWrapper}>
             <img src={sea} onMouseOver={mouseOverEvent} 
               className={styles.sectionTwoImg} id="domEvent"/>
@@ -120,54 +130,36 @@ const Dashboard: React.FC = () => {
 
 
         <main className={styles.sectionTwoLowerWrapper}>
-          <section aria-details='inline-style' style={{opacity: isInView ? 1 : 0,
-            transform: isInView ? "none" : "translateX(-250px)", transition: "3.5s ease-in-out"}}>
-            <div className={styles.sectionTwoImgContainer}>
-              <img src={greek} onMouseOver={mouseOverEventTwo}
-                className={styles.sectionTwoNextImg} id="greek"/>
-              <span>
-                <h1 id="eventListenerTwo" className={styles.sectionTwoImgLabelTwo}>
-                  {`
-                    ${ApiFour[0].pagemap.restaurant[0].name}: 
-                    ${ApiFour[0].pagemap.restaurant[0].servescuisine}
-                  `}
-                </h1> 
-              </span>
-            </div>
-          </section>
+          <div className={styles.sectionTwoImgContainer}>
+            <img src={greek} onMouseOver={mouseOverEventTwo}
+              className={styles.sectionTwoNextImg} id="greek"/>
+            <span>
+              <h1 id="eventListenerTwo" className={styles.sectionTwoImgLabelTwo}>
+                {`
+                  ${ApiFour[0].pagemap.restaurant[0].name}: 
+                  ${ApiFour[0].pagemap.restaurant[0].servescuisine}
+                `}
+              </h1> 
+            </span>
+          </div>
         </main>
-        <span aria-details='section-three-ref-point' ref={sectionThreeRef} />
+        <span ref={sectionThreeRef} 
+        aria-details='section-three-animation-ref-point'/>
       </main>
 
 
       { sectionThreeInView &&
         <main className={styles.mainSectionThree}>
           <main className={styles.sectionThree}>
-            <section className={styles.sectionThreeCardWrapper} >
-              <IonCard aria-details='inline-style' style={{padding: "0", margin: "0",
-                width: "100%", height: "225px", backgroundColor: "rgba(135, 13, 2, 0.1)",
-                border: "1.5px solid black", display: "flex", flexDirection: "column"}}>
-                <IonCardHeader style={{fontFamily: 'Bebas Neue, cursive',
-                  textDecoration: "none", backgroundColor: "rgba(0, 0, 0, 0.7)", height: "40px"}}>
-                  <IonCardTitle aria-details='inline-style'>
-                    <p className={styles.sectionThreeNestedTitle}>
-                      Enjoy authentic plates near you
-                    </p>
-                  </IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent className={styles.sectionThreeCardContent}>
-                <p className={styles.contentText}>
-                  Here's a small text description for the card content. Nothing more, nothing less. 
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt assumenda 
-                  necessitatibus dolorum cupiditate corrupti. Aspernatur distinc.
-                </p>
-                </IonCardContent>
-              </IonCard>
-            </section>  
-            <section ref={sectionThreeRef}>
-
-
-
+            <span className={styles.sectionThreeTitleWrapper} >
+              <IonTitle className={styles.sectionThreeHeader}>
+                <h2 className={styles.sectionThreeH2}>
+                  <i> Find your next meal here! </i>
+                </h2>
+              </IonTitle>
+            </span>
+            <section className={styles.sectionThreeGmapWrapper}>
+              <Map/>
             </section>
           </main>
         </main>

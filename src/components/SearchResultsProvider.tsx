@@ -1,6 +1,6 @@
 import styles from "../theme/results.module.css";
 import { useState } from 'react';
-import { IonImg,} from '@ionic/react';
+import { IonImg } from '@ionic/react';
 import Accordion from "react-bootstrap/Accordion";
 import { Api } from '../temp/snippet';
 
@@ -68,7 +68,7 @@ const SearchResultsProvider = ({children}: any) => {
                 <span id=""> 
                   <IonImg role="img" src={Api[0].pagemap.img} 
                     style={{height: "200px", width: "180px",
-                    imageRendering: "smooth"}} />
+                    imageRendering: "smooth", padding: "5px"}} />
                 </span>
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
@@ -104,7 +104,7 @@ const SearchResultsProvider = ({children}: any) => {
               <Accordion.Body className={styles.accordionBody}>
                 <IonImg role="img" src={Api[1].pagemap.img} 
                   style={{height: "200px", width: "180px",
-                  imageRendering: "smooth"}} />
+                  imageRendering: "smooth", padding: "5px"}} />
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[1].title}
@@ -122,7 +122,7 @@ const SearchResultsProvider = ({children}: any) => {
                     </span>{" "}
                     <span className={styles.rating} aria-label='4.8 out of 5' role="img"/>
                       {" stars ·  "} 
-                    <span itemProp="reviewCount"> (758)</span> {"reviews"}
+                    <span itemProp="reviewCount"> (448)</span> {"reviews"}
                   </div>
                   <span role="menuitem" itemProp="telephone">
                     {Api[1].phone}
@@ -142,7 +142,7 @@ const SearchResultsProvider = ({children}: any) => {
               <Accordion.Body className={styles.accordionBody}>
                 <IonImg role="img" src={Api[2].pagemap.img} 
                   style={{height: "200px", width: "180px",
-                  imageRendering: "smooth"}} />
+                  imageRendering: "smooth", padding: "5px"}} />
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[2].title}
@@ -177,7 +177,7 @@ const SearchResultsProvider = ({children}: any) => {
               <Accordion.Body className={styles.accordionBody}>
                 <IonImg role="img" src={Api[3].pagemap.img} 
                   style={{height: "200px", width: "180px",
-                  imageRendering: "smooth"}} />
+                  imageRendering: "smooth", padding: "5px"}} />
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[3].title}
@@ -212,7 +212,7 @@ const SearchResultsProvider = ({children}: any) => {
               <Accordion.Body className={styles.accordionBody}>
                 <IonImg role="img" src={Api[4].pagemap.img} 
                   style={{height: "200px", width: "180px",
-                  imageRendering: "smooth"}} />
+                  imageRendering: "smooth", padding: "5px"}} />
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[4].title}

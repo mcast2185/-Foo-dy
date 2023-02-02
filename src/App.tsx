@@ -3,25 +3,23 @@ import {Outlet, Route, Routes, Link } from 'react-router-dom';
 import { gapi } from 'gapi-script';
 import { useState, useEffect } from 'react';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
-// import { AnimatePresence, motion } from 'framer-motion';
 
-import styles from './theme/app.module.css'
+import styles from './theme/app.module.css';
 import Dashboard from './pages/dashboard';
 import Login from './pages/login';
 import Header from './components/header';
 import Banner from './components/banner';
 import About from './pages/about';
 import Contact from './pages/contact';
-import Footer from './components/footer';
 
 
 setupIonicReact();
-
 const client_id: string = "966483059530-2bd3tkjisb06c8di41eo3j5rdcocaqkv.apps.googleusercontent.com";
 
 
 const App: React.FC = () => {
   const [accessToken, setAccessToken] = useState<any>(null);
+
   useEffect(() => {
     const start = () => {
       GoogleAuth.initialize({
@@ -30,6 +28,7 @@ const App: React.FC = () => {
       });
     };
   gapi.load('client:auth2', start)}, []);
+  
   accessToken !== null && sessionStorage.setItem("userToken", accessToken);
 
   return (
