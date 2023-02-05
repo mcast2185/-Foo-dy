@@ -600,7 +600,7 @@
     margin-right: 0;
     justify-content: end;
     padding: 0;
-    /* position: relative; */
+    position: relative;
     width: 720px;
     cursor: default;
     object-fit: contain;
@@ -629,7 +629,7 @@
 
     position: absolute;
     left: 0;
-    bottom: 200px;
+    bottom: 25px;
     margin-left: 10%;
     margin-right: 10%;
     display: flex;
@@ -689,7 +689,7 @@
     align-items: center;
     color: rgba(234, 234, 234, .9);
     mix-blend-mode: difference;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     letter-spacing: -2px;
     -webkit-text-stroke-color: rgb(34, 34, 34);
     -webkit-text-stroke-width: .5px;
