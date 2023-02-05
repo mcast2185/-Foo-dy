@@ -4,7 +4,7 @@ const Contact: React.FC = () => {
 
   return (
     <header>
-      Social
+      Contact page test
     </header>
   );
 };

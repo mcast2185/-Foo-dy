@@ -236,6 +236,17 @@
 
 }
 
+.sectionTwoHidden {
+  margin-top: 25px;
+  width: 90%;
+  height: 225px;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+
+}
+
 
 .sectionTwoLowerWrapper {
   position: relative;
@@ -252,7 +263,7 @@
   margin-right: 0;
   justify-content: end;
   padding: 0;
-  /* position: relative; */
+  position: relative;
   width: 720px;
   cursor: default;
   object-fit: contain;
@@ -262,16 +273,6 @@
   margin-top: 50px;
 }
 
-.sectionTwoHidden {
-  margin-top: 25px;
-  width: 90%;
-  height: 225px;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: none;
-
-}
 
 
 .sectionTwoNextImg {
@@ -281,6 +282,8 @@
   position: sticky; 
   transition: 1s ease-in-out;
   object-fit: cover;
+  display: flex;
+  justify-content: center;
 
 }
 

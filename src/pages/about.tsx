@@ -7,10 +7,9 @@ import Gifs from '../temp/gifs';
 const About: React.FC = () => {
 
   return (
-    <div>
-      About
-      <Gifs/>
-    </div>
+    <header>
+      About page Test
+    </header>
   );
 };
 

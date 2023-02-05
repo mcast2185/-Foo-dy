@@ -129,24 +129,24 @@ const Header = () => {
             </IonText>
           </section>
           <div className={styles.ionTextIcons}>
-            <p className={styles.label}> Powered By:</p>
+            <p className={styles.label}> Follow us:</p>
             <IonItem aria-details='inline-style' style={{
               fontSize: "9.5px", fontWeight: "bold", marginRight: "-15px"}}>
 
-              <IonIcon icon={logoReact} className={styles.ionMediaIcon}/>
-              React|{' '} 
+              <IonIcon icon={logoTwitter} className={styles.ionMediaIcon}/>
+              |{' '} 
             </IonItem>
             <IonItem aria-details='inline-style' style={{
               fontSize: "9.5px", fontWeight: "bold", marginRight: "-15px"}}>
 
-              <IonIcon icon={logoIonic} className={styles.ionMediaIcon}/>
-              Ionic|{' '}
+              <IonIcon icon={logoFacebook} className={styles.ionMediaIcon}/>
+              |{' '}
             </IonItem>
             <IonItem aria-details='inline-style' style={{
               fontSize: "9.5px", fontWeight: "bold", marginRight: "-15px"}}>
 
-              <IonIcon icon={logoCapacitor} className={styles.ionMediaIcon}/>
-              Capacitor|
+              <IonIcon icon={logoLinkedin} className={styles.ionMediaIcon}/>
+              |
             </IonItem>
           </div>
         </IonHeader>
