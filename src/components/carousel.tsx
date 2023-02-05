@@ -19,10 +19,9 @@ function ImageCarousel() {
   return (
     <section aria-details='component-content-wrapper' className={styles.section}>
       <Carousel variant="dark" indicators={false}>
-        <Carousel.Item>
-          <img aria-details='inline-style'style={{
-            height: "500px", opacity: ".9", borderRadius: "3px"}}
-            className="d-block w-100" src={chef} alt="First slide"/>
+        <Carousel.Item className={styles.carouselItem}>
+          <img className={styles.carouselImg}
+            src={chef} alt="First slide"/>
           <Carousel.Caption className={styles.carouselCaption}>
             <h4 className={styles.carouselHeader}>First slide label</h4>
             <p className={styles.carouselDesc}>
@@ -31,9 +30,8 @@ function ImageCarousel() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img aria-details='inline-style'style={{
-            height: "500px", opacity: ".9", borderRadius: "3px"}}
-            className="d-block w-100" src={fish} alt="Second slide"/>
+          <img className={styles.carouselImg}
+            src={fish} alt="Second slide"/>
           <Carousel.Caption className={styles.carouselCaption}>
             <h4 className={styles.carouselHeader}>Second slide label</h4>
             <p className={styles.carouselDesc}>
@@ -42,9 +40,8 @@ function ImageCarousel() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img aria-details='inline-style'style={{
-            height: "500px", opacity: ".9", borderRadius: "3px"}}
-            className="d-block w-100" src={steak} alt="Third slide"/>
+          <img className={styles.carouselImg}
+            src={steak} alt="Third slide"/>
           <Carousel.Caption className={styles.carouselCaption}>
             <h4 className={styles.carouselHeader}>Third slide label</h4>
             <p className={styles.carouselDesc}>

@@ -63,10 +63,9 @@ const SearchResultsProvider = ({children}: any) => {
             <Accordion.Item eventKey="0" className={styles.accordionItem}>
               <Accordion.Header>{Api[0].title}</Accordion.Header>
               <Accordion.Body className={styles.accordionBody}>
-                <span id=""> 
+                <span>
                   <IonImg role="img" src={Api[0].pagemap.img} 
-                    style={{height: "200px", width: "180px",
-                    imageRendering: "smooth", padding: "5px"}} />
+                    className={styles.accordionImg} />
                 </span>
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
@@ -91,7 +90,7 @@ const SearchResultsProvider = ({children}: any) => {
                   <br/>
                   <br/>
                   <br/>
-                  <span itemProp="description">
+                  <span itemProp="description" className={styles.accordionDesc}>
                     {Api[0].desc}
                   </span>
                 </div>
@@ -100,9 +99,10 @@ const SearchResultsProvider = ({children}: any) => {
             <Accordion.Item eventKey="1" className={styles.accordionItem}>
               <Accordion.Header>{Api[1].title}</Accordion.Header>
               <Accordion.Body className={styles.accordionBody}>
-                <IonImg role="img" src={Api[1].pagemap.img} 
-                  style={{height: "200px", width: "180px",
-                  imageRendering: "smooth", padding: "5px"}} />
+                <span>
+                  <IonImg role="img" src={Api[1].pagemap.img} 
+                    className={styles.accordionImg} />
+                </span>
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[1].title}
@@ -129,7 +129,7 @@ const SearchResultsProvider = ({children}: any) => {
                   <br/>
                   <br/>
                   <br/>
-                  <span itemProp="description">
+                  <span itemProp="description" className={styles.accordionDesc}>
                     {Api[1].desc}
                   </span>
                 </div>
@@ -138,9 +138,10 @@ const SearchResultsProvider = ({children}: any) => {
             <Accordion.Item eventKey="2" className={styles.accordionItem}>
               <Accordion.Header>{Api[2].title}</Accordion.Header>
               <Accordion.Body className={styles.accordionBody}>
-                <IonImg role="img" src={Api[2].pagemap.img} 
-                  style={{height: "200px", width: "180px",
-                  imageRendering: "smooth", padding: "5px"}} />
+                <span>
+                  <IonImg role="img" src={Api[2].pagemap.img} 
+                    className={styles.accordionImg} />
+                </span>
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[2].title}
@@ -164,7 +165,7 @@ const SearchResultsProvider = ({children}: any) => {
                   <br/>
                   <br/>
                   <br/>
-                  <span itemProp="description">
+                  <span itemProp="description" className={styles.accordionDesc}>
                     {Api[2].desc}
                   </span>
                 </div>
@@ -173,9 +174,10 @@ const SearchResultsProvider = ({children}: any) => {
             <Accordion.Item eventKey="3" className={styles.accordionItem}>
               <Accordion.Header>{Api[3].title}</Accordion.Header>
               <Accordion.Body className={styles.accordionBody}>
-                <IonImg role="img" src={Api[3].pagemap.img} 
-                  style={{height: "200px", width: "180px",
-                  imageRendering: "smooth", padding: "5px"}} />
+                <span>
+                  <IonImg role="img" src={Api[3].pagemap.img} 
+                    className={styles.accordionImg} />
+                </span>
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[3].title}
@@ -199,7 +201,7 @@ const SearchResultsProvider = ({children}: any) => {
                   <br/>
                   <br/>
                   <br/>
-                  <span itemProp="description">
+                  <span itemProp="description" className={styles.accordionDesc}>
                     {Api[3].desc}
                   </span>
                 </div>
@@ -208,9 +210,10 @@ const SearchResultsProvider = ({children}: any) => {
             <Accordion.Item eventKey="4" className={styles.accordionItem}>
               <Accordion.Header>{Api[4].title}</Accordion.Header>
               <Accordion.Body className={styles.accordionBody}>
-                <IonImg role="img" src={Api[4].pagemap.img} 
-                  style={{height: "200px", width: "180px",
-                  imageRendering: "smooth", padding: "5px"}} />
+                <span>
+                  <IonImg role="img" src={Api[4].pagemap.img} 
+                    className={styles.accordionImg} />
+                </span>
                 <div itemScope itemType="https://schema.org/Restaurant">
                   <span itemProp="name" >
                     {Api[4].title}
@@ -234,7 +237,7 @@ const SearchResultsProvider = ({children}: any) => {
                   <br/>
                   <br/>
                   <br/>
-                  <span itemProp="description">
+                  <span itemProp="description" className={styles.accordionDesc}>
                     {Api[4].desc}
                   </span>
                 </div>
@@ -244,16 +247,19 @@ const SearchResultsProvider = ({children}: any) => {
         </section>
         } 
       </div>
-      <span aria-details="results-button" className={styles.buttonWrapper}>
-        <button className={styles.centerButton} 
-          onClick={() => getResults()}>
-          {/* onClick={() => executeApiQuery()}> */}
-          <p className={styles.p}>
-            The city has options, so should you!
-          </p>
-        </button> 
-      </span>
     </section>
   );
 }
 export default SearchResultsProvider;
+
+
+
+// <span aria-details="results-button" className={styles.buttonWrapper}>
+// <button className={styles.centerButton} 
+//   onClick={() => getResults()}>
+//   {/* onClick={() => executeApiQuery()}> */}
+//   <p className={styles.p}>
+//     The city has options, so should you!
+//   </p>
+// </button> 
+// </span>

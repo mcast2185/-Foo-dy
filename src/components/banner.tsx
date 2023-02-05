@@ -15,24 +15,24 @@ const Banner: React.FC = () => {
           easing='ease'
           play={true}
           pause={false}
-          duration={40000}
+          duration={55000}
           iterations={Infinity}
           fromTo={[
-            { property: 'transform', fromValue: 'translateX(75%)', toValue: 'translateX(-115%)' },
+            { property: 'transform', fromValue: 'translateX(72.5%)', toValue: 'translateX(-97%)' },
             { property: 'opacity', fromValue: '1', toValue: '1' }
           ]}>
           <ul id="carouselList" className={styles.bannerItems}>
             <li id="carouselItem" className={styles.text} >
-             #1 Lorem ipsum dolor sit amet asconsectetur adipisic. 
+             <p className={styles.textP}>#1 Lorem ipsum dolor sit amet asconsectetur adipisic. </p>
             </li>
             <li id="carouselItem" className={styles.text} >
-             #2 Lorem ipsum dolor sit amet consessctetur adipisicddding. 
+             <p className={styles.textP}>#2 Lorem ipsum dolor sit amet consessctetur adipisicddding. </p>
             </li>
             <li id="carouselItem" className={styles.text} >
-             #3 Lorem ipsum dolor sit amet consectetur adipisicing. 
+             <p className={styles.textP}>#3 Lorem ipsum dolor sit amet consectetur adipisicing. </p>
             </li>
             <li id="carouselItem" className={styles.text} >
-             #4 Lorem ipsum dolor enn uona sit amet consectetur adipisicing. 
+             <p className={styles.textP}>#4 Lorem ipsum dolor enn uona sit amet consectetur adipisicing. </p>
             </li>
           </ul>
           </CreateAnimation>

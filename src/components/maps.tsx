@@ -63,13 +63,13 @@ const Map = () => {
   const houses = useMemo(() => 
     generateHouses(), []);
 
-  const onLoad = useCallback((map: any) => 
-    (mapRef.current = map), []);
+  // const onLoad = useCallback((map: any) => 
+  //   (mapRef.current = map), []);
 
   const options: MapOptions = useMemo(() => ({
     mapId: "3d862ff77d558bc4",
     disableDefaultUI: true,
-    zoomControl: false,
+    zoomControl: true,
     streetViewControl: false,
     mapTypeControl: false,
     clickableIcons: false
@@ -79,11 +79,13 @@ const Map = () => {
 
   if (!isLoaded) return <div> <IonSpinner/> </div>;
   return (
-    <CustomIframe load="auto" title="google-maps" 
-      style={{width: "100%", height: "100%"}}>
+    // <CustomIframe load="auto" title="google-maps" 
+    //   style={{width: "100%", height: "100%"}}>
       <GoogleMap zoom={zoom} options={options} center={center} 
-        mapContainerStyle={containerStyle} onLoad={onLoad} id="map">
-        {office && 
+        mapContainerStyle={containerStyle} 
+        // onLoad={onLoad} 
+        id="map">
+        {/* {office && 
           <>
             <Marker position={office}/> 
             <MarkerClusterer>
@@ -97,9 +99,9 @@ const Map = () => {
               }
             </MarkerClusterer>
           </>
-        }
+        } */}
       </GoogleMap>
-    </CustomIframe>
+    // </CustomIframe>
   )
 }
 

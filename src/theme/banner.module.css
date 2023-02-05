@@ -2,7 +2,7 @@
   display: flex;
   width: 100vw;
   height: 50px;
-  z-index: 10;
+  z-index: 11;
   position:fixed;
 
 }
@@ -23,25 +23,17 @@
 .bannerItems {
   position: absolute;
   transition: ease;
-  left: 0;
-  width: 130%;
-  /* transform: translateX(0%); */
-  /* animation: slide 60s infinite ease-in-out; */
+  left: -1.5%;
+  width: 135%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  top: 8px;
+  top: 6.5px;
   overflow: hidden;
 
   
 }
 
-
-.bannerItems:hover {
-  animation-play-state: paused;
-  transition: .7s ease-in-out;
-
-}
 
 ul {
   padding-inline-start: 80px;
@@ -50,30 +42,76 @@ ul {
 
 
 .text {
-  padding: 3px;
   margin-left: 50px;
+  padding: 3px;
   color: rgb(250, 233, 201);
   font-family: 'Bebas Neue', cursive;
   font-size: 19px;
   height: 100%;
-  /* width: 100%; */
   display: flex;
-  align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  background-color: rgba(146, 17, 5, 0.08);
   border-radius: 15px;
-  transition: ease;
-  text-overflow: clip;
+  transition: ease-in-out;
 
 }
 
+.textP {
+  width: 470px;
+  margin-left: 20px;
+  letter-spacing: .5px;
+}
 
-.text:hover {
+
+/* .text:hover {
   transform: scale(1);
   transition: .8s ease-in-out;
   font-size: 20px;
   background-color: rgba(113, 14, 5, 0.8);
   animation-play-state: paused;
+
+} */
+
+@media only screen and (max-width: 1400px) {
+  .bannerItems {
+    position: absolute;
+    transition: ease;
+    left: 0;
+    width: 160%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 9px;
+    
+  }
+
+  .text {
+    /* padding-right: 50px; */
+    color: rgb(250, 233, 201);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 17.5px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: rgba(146, 17, 5, 0.08);
+    border-radius: 15px;
+    transition: ease-in-out;
+  
+  }
+
+  .textP {
+    width: 450px;
+  letter-spacing: .5px;
+
+  }
+
+}
+
+@media only screen and (max-width: 750px) {
+  .bannerWrapper {
+    display: none;
+  }
 
 }

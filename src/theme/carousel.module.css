@@ -4,6 +4,15 @@
   border: 1px solid black;
 }
 
+.carouselImg {
+  height: 500px;
+  width: 100%;
+  opacity: .9;
+  border-radius: 3px;
+  display: block;
+
+}
+
 .carouselCaption {
   background: rgba(0,0,0,.5); 
   color: whitesmoke;
@@ -27,4 +36,61 @@
   font-size: 18px; 
   color: whitesmoke; 
   font-weight: bold;
+}
+
+
+
+@media only screen and (max-width: 850px) {
+  .section {
+    width: 100%; 
+    height: 375px; 
+    position: relative;
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+  }
+
+  .carouselItem {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .carouselImg {
+    height: 375px;
+    width: 100%;
+    opacity: .9;
+    border-radius: 3px;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+
+  }
+  
+  .carouselCaption {
+
+    background: rgba(0,0,0,.65); 
+    color: whitesmoke;
+    margin-left: -79px;
+    width: 100%;
+    bottom: 1.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    text-align: center;
+    font-family: Darker Grotesque, sans-serif;
+    height: 120px;
+  }
+  
+  .carouselHeader {
+    font-weight: 500; 
+    color: whitesmoke;
+  }
+  
+  .carouselDesc {
+    font-size: 18px; 
+    color: whitesmoke; 
+    font-weight: 500;
+  }
+  
+  
 }
