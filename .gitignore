@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-.env
+.env.local
+credentials.json
 
 # testing
 /coverage
@@ -21,7 +22,7 @@
 /.vscode/*
 !/.vscode/extensions.json
 .idea
-/.env
+/.env.local
 credentials.json
 
 npm-debug.log*

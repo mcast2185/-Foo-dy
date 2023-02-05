@@ -2,9 +2,8 @@ import styles from "../theme/review.module.css";
 import { useState } from 'react';
 
 
-
-const apiKey = "AIzaSyBRShqSMbyvYoO_Q2p1XatFGytoIG5fYdM";
-const searchEngineId = "54fd67d12dc924033";
+const apiKey: string = String(process.env.REACT_APP_API_KEY);
+const searchEngineId: string = String(process.env.REACT_APP_SEARCH_ENGINE);
 
 
 const ReviewResults = () => {

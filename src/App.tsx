@@ -14,8 +14,8 @@ import Contact from './pages/contact';
 
 
 setupIonicReact();
-const client_id: string = "966483059530-2bd3tkjisb06c8di41eo3j5rdcocaqkv.apps.googleusercontent.com";
 
+const client_id: string = String(process.env.REACT_APP_CLIENT_ID);
 
 const App: React.FC = () => {
   const [accessToken, setAccessToken] = useState<any>(null);

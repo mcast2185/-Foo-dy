@@ -18,7 +18,8 @@ import { ApiFive } from '../temp/snippet';
 type LatLit = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
 
-const apiKey = "AIzaSyBRShqSMbyvYoO_Q2p1XatFGytoIG5fYdM";
+
+const apiKey: string = String(process.env.REACT_APP_API_KEY);
 const libraries: any = ["places"];
 const containerStyle = {
   "width": "100%",

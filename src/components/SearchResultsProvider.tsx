@@ -5,14 +5,13 @@ import Accordion from "react-bootstrap/Accordion";
 import { Api } from '../temp/snippet';
 
 
-const apiKey = "AIzaSyBRShqSMbyvYoO_Q2p1XatFGytoIG5fYdM";
-const searchEngineId = "54fd67d12dc924033";
+const apiKey: string = String(process.env.REACT_APP_API_KEY);
+const searchEngineId: string = String(process.env.REACT_APP_SEARCH_ENGINE);
 
 // https://www.googleapis.com/customsearch/v1?key=AIzaSyBRShqSMbyvYoO_Q2p1XatFGytoIG5fYdM&cx=54fd67d12dc924033&as_rights=(cc_publicdomain%7Ccc_attribute%7Ccc_sharealike%7Ccc_nonderived).-(cc_noncommercial)&q=restaurants+near+me+denver,more:pagemap:restaurant-servesCuisine+rating&exactTerms=restaurant+denver&hq=denver+CO&orTerms=restaurant&sort_by=rating-stars,rating-stars:r:5
 const SearchResultsProvider = ({children}: any) => {
   const [resultsApi, setResultsApi] = useState<any>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
   const input = {
     key: apiKey,
     cx: searchEngineId
@@ -20,7 +19,6 @@ const SearchResultsProvider = ({children}: any) => {
 
 
   const getResults = async () => {
-
     const response = await fetch(
       `https://www.googleapis.com/customsearch/v1?key=${input.key}&cx=${input.cx}&as_rights=(cc_publicdomain%7Ccc_attribute%7Ccc_sharealike%7Ccc_nonderived).-(cc_noncommercial)&q=restaurants+near+me+denver,more:pagemap:restaurant-servesCuisine+rating&exactTerms=restaurant+denver&hq=denver+CO&orTerms=restaurant&sort_by=rating-stars,rating-stars:r:5`);
     const data = await response.json();

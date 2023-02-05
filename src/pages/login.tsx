@@ -17,8 +17,7 @@ import styles from "../theme/login.module.css";
 import userImg from "../static/images/userImg.png";
 
 
-
-const client_id: string = "966483059530-2bd3tkjisb06c8di41eo3j5rdcocaqkv.apps.googleusercontent.com";
+const client_id: string = String(process.env.REACT_APP_CLIENT_ID);
 
 
 const Login = ({setAccessToken}: any) => {
